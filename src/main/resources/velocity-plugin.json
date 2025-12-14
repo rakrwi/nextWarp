@@ -1,0 +1,8 @@
+{
+  "id": "nextwarp",
+  "name": "NextWarp",
+  "version": "1.0.0",
+  "description": "Cross-server warp, spawn and random teleport plugin",
+  "authors": ["Heulim"],
+  "main": "com.heulim.nextwarp.velocity.NextWarpVelocity"
+}

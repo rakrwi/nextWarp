@@ -1,0 +1,100 @@
+name: NextWarp
+version: '1.0.0'
+main: com.heulim.nextwarp.paper.NextWarpPaper
+api-version: '1.21'
+description: Cross-server warp and random teleport plugin
+author: Heulim
+
+commands:
+  # Spawn 명령어
+  spawn:
+    description: Teleport to spawn
+    aliases: [스폰]
+    permission: nextwarp.spawn.use
+  setspawn:
+    description: Set spawn location
+    aliases: [스폰설정]
+    permission: nextwarp.spawn.set
+
+  # Warp 명령어
+  warp:
+    description: Teleport to a warp
+    aliases: [nwarp, 워프]
+    permission: nextwarp.warp.use
+  setwarp:
+    description: Set a warp at current location
+    aliases: [워프설정, 워프생성]
+    permission: nextwarp.warp.set
+  delwarp:
+    description: Delete a warp
+    aliases: [deletewarp, removewarp, 워프삭제, 워프제거]
+    permission: nextwarp.warp.delete
+  warps:
+    description: List all warps
+    aliases: [warplist, 워프목록, 워프리스트]
+    permission: nextwarp.warp.list
+
+  # RandomTP 명령어
+  randomtp:
+    description: Random teleport
+    aliases: [rtp, wild, 랜덤텔레포트, 랜덤tp, 야생]
+    permission: nextwarp.randomtp.use
+
+  # TPA 명령어
+  tpa:
+    description: Request teleport to a player
+    aliases: [텔레포트요청, 티피요청]
+    permission: nextwarp.tpa.use
+  tpahere:
+    description: Request a player to teleport to you
+    aliases: [여기로요청, 티피여기]
+    permission: nextwarp.tpa.use
+  tpaccept:
+    description: Accept a teleport request
+    aliases: [tpyes, 수락, 티피수락]
+    permission: nextwarp.tpa.use
+  tpdeny:
+    description: Deny a teleport request
+    aliases: [tpno, 거절, 티피거절]
+    permission: nextwarp.tpa.use
+
+permissions:
+  nextwarp.admin:
+    description: Admin permission for all NextWarp features
+    default: op
+  nextwarp.spawn.use:
+    description: Allows using spawn teleport
+    default: true
+  nextwarp.spawn.set:
+    description: Allows setting spawn
+    default: op
+  nextwarp.warp.use:
+    description: Allows using warp teleport
+    default: true
+  nextwarp.warp.set:
+    description: Allows setting warps
+    default: op
+  nextwarp.warp.delete:
+    description: Allows deleting warps
+    default: op
+  nextwarp.warp.list:
+    description: Allows listing warps
+    default: true
+  nextwarp.randomtp.use:
+    description: Allows using random teleport
+    default: true
+  nextwarp.tpa.use:
+    description: Allows using TPA commands
+    default: true
+  nextwarp.cooldown.bypass.warp:
+    description: Bypass warp cooldown
+    default: op
+  nextwarp.cooldown.bypass.spawn:
+    description: Bypass spawn cooldown
+    default: op
+  nextwarp.cooldown.bypass.rtp:
+    description: Bypass random teleport cooldown
+    default: op
+  nextwarp.cooldown.bypass.tpa:
+    description: Bypass TPA cooldown
+    default: op
