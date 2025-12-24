@@ -1,21 +1,39 @@
 plugins {
-    kotlin("jvm") version "2.2.20"
+    kotlin("jvm") version "2.0.21"
+    id("com.gradleup.shadow") version "8.3.5"
 }
 
-group = "com.heulim"
-version = "1.0-SNAPSHOT"
+allprojects {
+    group = "dev.rakrwi"
+    version = "1.0.0"
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+        maven("https://repo.papermc.io/repository/maven-public/")
+    }
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
+
+    configure<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension> {
+        jvmToolchain(21)
+    }
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation(project(":common"))
+    implementation(project(":api"))
+    implementation(project(":paper"))
+    implementation(project(":velocity"))
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks.shadowJar {
+    archiveClassifier.set("")
+    archiveBaseName.set("NextWarp")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
-kotlin {
-    jvmToolchain(21)
+
+tasks.build {
+    dependsOn(tasks.shadowJar)
 }
